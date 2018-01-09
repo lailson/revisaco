@@ -1,2 +1,11 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="row home">
+  <div class="center">
+    <h4 class="title">Torne suas revisões mais eficientes</h4>
+    <h5 class="subtitle">Utilize flash cards inteligentes para revisar todo o conteúdo</h5>
+    <h5 class="subtitle2">Fácil, rápido e divertido <i class="material-icons home-icon">insert_emoticon</i></h5>
+
+    <%= form_tag("/campaigns", method: "post") do %>
+      <%= submit_tag("Revisar agora", class: "waves-effect waves-light btn home-button") %>
+    <% end %>
+  </div>
+</div>
