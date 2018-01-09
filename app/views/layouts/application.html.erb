@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Revisaco</title>
+    <title>Revisaço</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag %>
   </head>
 
   <body>
-    <h1>Inicio</h1>
-    <%= yield %>
+
+    <header>
+      <%= render "shared/navbar" %>
+    </header>
+
+    <main>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
+
   </body>
 </html>
