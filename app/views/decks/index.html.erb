@@ -1,0 +1,58 @@
+<h3>Baralhos
+   <small>Organize seus flashcards.</small>
+</h3>
+
+<p id="notice"><%= notice %></p>
+
+
+<div class="row">
+      <div class="col-lg-12">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+               Baralhos |
+               <small>Novo</small>
+            </div>
+            <div class="panel-body">
+              <%= render 'form' %>
+            </div>
+         </div>
+      </div>
+</div>
+
+<!-- START DATATABLE 2 -->
+   <div class="row">
+      <div class="col-lg-12">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+               Baralhos |
+               <small>Decks</small>
+            </div>
+            <div class="panel-body">
+               <table id="datatable2" class="table table-striped table-hover">
+                  <thead>
+                     <tr>
+                        <th class="sort-alpha">Nome</th>
+                        <th class="sort-numeric">Quantidade</th>
+                        <th>Revisar</th>
+                        <th>Gerenciar</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                      <% @decks.each do |deck| %>
+                        <tr>
+                          <td><%= deck.name %></td>
+                          <td><%= deck.flashcards.count %></td>
+                          <td><%= link_to 'Revisar', deck_review_index_path(deck), class: "mb-sm btn btn-primary" %> </td>
+                           <td><%= link_to 'Gerenciar', deck_flashcards_path(deck), class: "mb-sm btn btn-info" %></td>
+                          
+                        </tr>
+                      <% end %>
+                    </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- END DATATABLE 2 -->
+<br>
+

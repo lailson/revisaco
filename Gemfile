@@ -24,6 +24,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'materialize-sass'
 gem 'material_icons'
+gem 'simple_form'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
