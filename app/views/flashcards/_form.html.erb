@@ -1,0 +1,21 @@
+<%= simple_form_for(@flashcard) do |f| %>
+    <%= f.error_notification %>
+  
+    <div class="form-group">
+      <%= f.input :front, label: "Frente" %>
+      <%= f.input :back , label: "Verso"%>
+      <div class="small-4 columns">
+        <%= f.label :deck_id %>
+        <%= f.select :deck_id, current_user.decks.collect { |a| [a.name, a.id]}, {}, { class: 'form-control m-b' } %>
+  
+      </div>
+      
+    </div>
+  
+    <div class="form-actions">
+      <%= f.button :submit , {label: "Atualizar flashcard"} %>
+    </div>
+  <% end %>
+  
+  
+  

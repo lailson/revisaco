@@ -1,0 +1,76 @@
+<h3>Flashcards
+   <small>Crie, organize e revise seus flashcards.</small>
+</h3>
+
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+ <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Criar Flashcard <small>Novo</small>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+         <%= render 'form' %>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Baralhos | <small>Listagem</small>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <table id="datatable1" class="table table-striped table-hover">
+                  <thead>
+                     <tr>
+                        <th>Baralho</th>
+                        <th>Frente</th>
+                        <th>Verso</th>
+                        <th class="sort-numeric">Revisar</th>
+                        <th class="sort-alpha">Gerenciar</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <% if @flashcards.count < 1 %>
+                  <tr><td colspan="3">Sem flashcards criados.</td></tr>
+                  <% end %>
+
+                  <% for flashcard in @flashcards %>
+         <tr id="flashcard_<%= flashcard.id %>">
+            <td><%= flashcard.deck.name %></td>
+            <td><%= flashcard.front %></td>
+            <td><%= flashcard.back %></td>
+            <td><%= flashcard.due %></td>
+            <td>
+               <%= link_to 'Editar', edit_flashcard_path(flashcard), class: "button success tiny" %> 
+               <%= link_to 'Apagar', flashcard, class: "button tiny alert", method: :delete, remote: true %>      
+            </td>
+         </tr>
+         <% end %>
+                  </tbody>
+               </table>
+      </div>
+    </div>
+  </div>
+  
+
+<script>
+$('#myCollapsible').collapse({
+  toggle: false
+})
+
+</script>
+<script>
+$('.collapse').collapse()
+</script>

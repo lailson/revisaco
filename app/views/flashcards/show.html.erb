@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Front:</strong>
+  <%= @flashcard.front %>
+</p>
+
+<p>
+  <strong>Back:</strong>
+  <%= @flashcard.back %>
+</p>
+
+<p>
+  <strong>Due:</strong>
+  <%= @flashcard.due %>
+</p>
+
+<p>
+  <strong>Interval:</strong>
+  <%= @flashcard.interval %>
+</p>
+
+<p>
+  <strong>Ease factor:</strong>
+  <%= @flashcard.ease_factor %>
+</p>
+
+<p>
+  <strong>Last review:</strong>
+  <%= @flashcard.last_review %>
+</p>
+
+<%= link_to 'Editar', edit_flashcard_path(@flashcard) %> |
+<%= link_to 'Voltar', flashcards_path %>
