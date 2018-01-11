@@ -1,0 +1,35 @@
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<html>
+  <div class="stage">
+    <div class="flashcard">
+      <div class="front">
+        <p><%= @flashcard.front %></p>
+      </div>
+      <div class="back">
+        <p><%= @flashcard.back %></p>
+      </div>
+    </div>  
+  </div>
+</html>
+
+<div class="row">
+    <ul class="button-group even-4 round centered" id="buttons">
+      <%= form_tag("/decks/#{params[:deck_id]}/review/#{@flashcard.id}", method: :patch) do %>
+        <%= submit_tag "Repetir", name: "response", class: "mb-sm btn btn-danger col-md-3" %>
+        <%= submit_tag "Dificil", name: "response", class: "mb-sm btn btn-warning col-md-3" %>
+        <%= submit_tag "Bom", name: "response", class: "mb-sm btn btn-primary col-md-3" %>
+        <%= submit_tag "Facil", name: "response", class: "mb-sm btn btn-success col-md-3" %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+  $('.flashcard').on('click', function() {
+    $('.flashcard').toggleClass('flipped');
+  });
+});
+
+</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>

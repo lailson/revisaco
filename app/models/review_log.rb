@@ -1,2 +1,3 @@
-class ReviewLog < ApplicationRecord
+class ReviewLog < ActiveRecord::Base
+	belongs_to :deck
 end
